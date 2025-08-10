@@ -1,26 +1,15 @@
 // src/App.jsx
-import mascot from "./mascot.png";
-import courtDrop from ".court-drop.png";
-
-export default function App() {
-  return (
-    <div>
-      <img src={mascot} alt="Green D Mascot" />
-      <img src={courtDrop} alt="WNBA Court Drop" />
-    </div>
-  );
-}
 import { XRPL_ISSUER, BUY_URL } from "./config";
 import { motion } from "framer-motion";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.45 } }
+  show: { opacity: 1, y: 0, transition: { duration: 0.45 } },
 };
 
 const fadeIn = {
   hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { duration: 0.45 } }
+  show: { opacity: 1, transition: { duration: 0.45 } },
 };
 
 export default function App() {
@@ -83,23 +72,19 @@ export default function App() {
         variants={fadeIn}
       >
         <div className="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 items-center">
-          <motion.div variants={fadeUp}>
+          <motion.div variants={fadeUp} className="space-y-4">
             <h2 className="text-3xl sm:text-4xl font-bold">What is Green D Coin?</h2>
-            <p className="mt-4 text-white/80">
-              A cheeky eco-friendly memecoin on XRPL featuring a pixel mascot with
-              main-character energy. Built for fun, turbo-shareability, and light-speed vibes.
+            <p className="text-white/80">
+              A cheeky eco-friendly memecoin on XRPL featuring a pixel mascot with main-character energy.
             </p>
-            <ul className="mt-6 space-y-2 text-white/80">
+            <ul className="space-y-2 text-white/80">
               <li>• Fast + low fees on XRPL</li>
               <li>• Meme-first brand with real community tools</li>
               <li>• Transparent tokenomics and no gotchas</li>
             </ul>
           </motion.div>
 
-          <motion.div
-            className="rounded-2xl overflow-hidden ring-1 ring-white/10 shadow-2xl"
-            variants={fadeUp}
-          >
+          <motion.div className="rounded-2xl overflow-hidden ring-1 ring-white/10 shadow-2xl" variants={fadeUp}>
             <img src="/court-drop.png" alt="BONK court drop" className="w-full h-full object-cover" />
           </motion.div>
         </div>
@@ -116,7 +101,6 @@ export default function App() {
       >
         <div className="max-w-6xl mx-auto px-6 py-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-center">Tokenomics</h2>
-
           <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { title: "Total Supply", body: "1,000,000,000 GDC — plenty to bonk around." },
