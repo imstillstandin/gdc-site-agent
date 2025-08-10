@@ -1,4 +1,7 @@
 import { XRPL_ISSUER, BUY_URL } from './config';
+// Import mascot and court‑drop images so Vite can bundle them correctly
+import mascotImg from '../mascot.png';
+import courtImg from '../court-drop.png';
 
 export default function App() {
   // This component renders the complete Green D Coin landing page.  
@@ -9,7 +12,7 @@ export default function App() {
       {/* Hero section with mascot and CTA */}
       <header className="text-center p-12">
         <img
-          src="/assets/mascot.png"
+          src={mascotImg}
           alt="Green D Coin Mascot"
           className="mx-auto w-32 h-32 mb-4"
         />
@@ -37,7 +40,7 @@ export default function App() {
           every purchase supports green initiatives.
         </p>
         <img
-          src="/assets/court-drop.png"
+          src={courtImg}
           alt="Court Drop Scene"
           className="mx-auto w-80 border border-gray-700 rounded-xl"
         />
