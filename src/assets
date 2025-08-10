@@ -1,5 +1,0 @@
-import mascot from "./assets/mascot.png";
-import court from "./assets/court-drop.png";
-// ...
-<img src={mascot} alt="Green D" />
-<img src={court} alt="Court Drop" />

@@ -1,4 +1,15 @@
 // src/App.jsx
+import mascot from "./assets/mascot.png";
+import courtDrop from "./assets/court-drop.png";
+
+export default function App() {
+  return (
+    <div>
+      <img src={mascot} alt="Green D Mascot" />
+      <img src={courtDrop} alt="WNBA Court Drop" />
+    </div>
+  );
+}
 import { XRPL_ISSUER, BUY_URL } from "./config";
 import { motion } from "framer-motion";
 
