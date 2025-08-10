@@ -1,6 +1,6 @@
 // src/App.jsx
-import mascot from "./assets/mascot.png";
-import courtDrop from "./assets/court-drop.png";
+import mascot from "./mascot.png";
+import courtDrop from ".court-drop.png";
 
 export default function App() {
   return (
