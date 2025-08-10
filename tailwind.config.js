@@ -1,0 +1,2 @@
+/** @type {import('tailwindcss').Config} */
+export default {content:["./index.html","./src/**/*.{js,ts,jsx,tsx}"],theme:{extend:{colors:{gdc:{green:'#20C65A',dark:'#0b0f10',accent:'#A6F3C1'}},boxShadow:{neon:'0 0 25px rgba(32,198,90,0.6)'}}},plugins:[],};
