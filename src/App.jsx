@@ -1,96 +1,64 @@
 import { XRPL_ISSUER, BUY_URL } from './config';
-// Import mascot and court‑drop images so Vite can bundle them correctly
-import mascotImg from '../mascot.png';
-import courtImg from '../court-drop.png';
+import { motion } from 'framer-motion';
+
+const fade = { hidden:{opacity:0, y:12}, show:{opacity:1, y:0, transition:{duration:0.35}} };
 
 export default function App() {
-  // This component renders the complete Green D Coin landing page.  
-  // It includes a hero section, about section with a court‑drop image,
-  // tokenomics, how to buy instructions, a roadmap and a footer.  
   return (
-    <div className="bg-black text-white font-sans">
-      {/* Hero section with mascot and CTA */}
-      <header className="text-center p-12">
-        <img
-          src={mascotImg}
-          alt="Green D Coin Mascot"
-          className="mx-auto w-32 h-32 mb-4"
-        />
-        <h1 className="text-5xl font-bold">Green D Coin</h1>
-        <p className="mt-4 text-xl">
-          The cheeky eco‑friendly memecoin on XRPL
-        </p>
-        {/* Call‑to‑action button linking to the buy URL */}
-        <a
-          href={BUY_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-6 inline-block bg-green-600 text-white py-3 px-6 rounded-full hover:bg-green-500"
-        >
-          Buy GDC
-        </a>
-      </header>
-
-      {/* About section */}
-      <section className="py-16 px-6 text-center bg-gray-900">
-        <h2 className="text-4xl font-semibold mb-4">About</h2>
-        <p className="max-w-xl mx-auto text-lg mb-8">
-          Green D Coin is a playful, pixel‑powered token bringing humor and fun
-          to the eco‑conscious crypto community. Bounce into the GDC movement—
-          every purchase supports green initiatives.
-        </p>
-        <img
-          src={courtImg}
-          alt="Court Drop Scene"
-          className="mx-auto w-80 border border-gray-700 rounded-xl"
-        />
-      </section>
-
-      {/* Tokenomics section */}
-      <section className="py-16 px-6 text-center">
-        <h2 className="text-4xl font-semibold mb-4">Tokenomics</h2>
-        <div className="max-w-2xl mx-auto grid grid-cols-2 gap-6 text-lg">
-          <div className="p-4 bg-gray-900 rounded-xl">
-            <h3 className="text-2xl font-bold mb-2">Total Supply</h3>
-            <p>1,000,000,000 GDC</p>
+    <div className="min-h-screen bg-[radial-gradient(circle_at_20%_10%,#123,transparent_40%),radial-gradient(circle_at_80%_0%,#0b2,transparent_35%)]">
+      {/* NAV */}
+      <nav className="sticky top-0 z-40 backdrop-blur bg-black/40 border-b border-white/10">
+        <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <img src="/assets/mascot.png" alt="GDC Mascot" className="h-8 w-8" />
+            <span className="font-semibold tracking-wide">GDC</span>
           </div>
-          <div className="p-4 bg-gray-900 rounded-xl">
-            <h3 className="text-2xl font-bold mb-2">Liquidity</h3>
-            <p>80% locked for 1 year</p>
-          </div>
-          <div className="p-4 bg-gray-900 rounded-xl col-span-2">
-            <h3 className="text-2xl font-bold mb-2">Taxes</h3>
-            <p>0% buy / 0% sell – it’s a free throw!</p>
+          <div className="flex items-center gap-3">
+            <a href="#buy" className="text-sm opacity-80 hover:opacity-100">How to buy</a>
+            <a href="#tokenomics" className="text-sm opacity-80 hover:opacity-100">Tokenomics</a>
+            <a href={BUY_URL} target="_blank" rel="noreferrer"
+               className="rounded-lg px-3 py-1.5 bg-emerald-500/90 hover:bg-emerald-400 text-black font-semibold">
+              Buy GDC
+            </a>
           </div>
         </div>
-      </section>
+      </nav>
 
-      {/* How to buy section */}
-      <section id="buy" className="py-16 px-6 text-center bg-gray-900">
-        <h2 className="text-4xl font-semibold mb-4">How to Buy</h2>
-        <ol className="max-w-xl mx-auto text-left list-decimal list-inside space-y-4 text-lg">
-          <li>Set up an XRPL wallet (XUMM recommended).</li>
-          <li>Trust the GDC issuer: {XRPL_ISSUER}</li>
-          <li>Swap XRP for GDC using the XRPL DEX.</li>
-          <li>Check your wallet—you're now part of the green revolution!</li>
-        </ol>
-      </section>
+      {/* HERO */}
+      <header className="mx-auto max-w-6xl px-4 pt-14 pb-10">
+        <div className="grid md:grid-cols-2 gap-8 items-center">
+          <motion.div variants={fade} initial="hidden" animate="show" className="space-y-5">
+            <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
+              The <span className="text-emerald-400 drop-shadow">Green D</span> is for holders
+            </h1>
+            <p className="text-white/80 text-lg">
+              Pixel vibes. Chaotic-good energy. Bonk the dip, hodl the drip.
+            </p>
+            <div className="flex gap-3">
+              <a href={BUY_URL} target="_blank" rel="noreferrer"
+                 className="rounded-xl px-5 py-3 bg-emerald-500 hover:bg-emerald-400 text-black font-bold">
+                Buy GDC
+              </a>
+              <a href="#tokenomics"
+                 className="rounded-xl px-5 py-3 border border-white/20 hover:border-white/40">
+                Read Tokenomics
+              </a>
+            </div>
+            <div className="text-sm text-white/60">
+              XRPL Issuer: <span className="font-mono">{XRPL_ISSUER}</span>
+            </div>
+          </motion.div>
 
-      {/* Roadmap section */}
-      <section className="py-16 px-6 text-center">
-        <h2 className="text-4xl font-semibold mb-4">Roadmap</h2>
-        <ul className="max-w-xl mx-auto text-left list-disc list-inside space-y-4 text-lg">
-          <li>Launch token & community website.</li>
-          <li>Release pixel‑plant NFT drop.</li>
-          <li>Partner with eco charities for GDC donations.</li>
-          <li>Introduce mobile game & merch store.</li>
-        </ul>
-      </section>
+          <motion.div initial={{opacity:0, scale:0.9}} animate={{opacity:1, scale:1}} transition={{duration:0.4}}>
+            <img src="/assets/mascot.png" alt="GDC Mascot" className="mx-auto w-[320px] md:w-[420px] drop-shadow-[0_0_30px_#22ee66aa]" />
+          </motion.div>
+        </div>
+      </header>
 
-      {/* Footer */}
-      <footer className="py-6 text-center bg-gray-900">
-        <p>© {new Date().getFullYear()} Green D Coin. All rights reserved.</p>
-      </footer>
-    </div>
-  );
-}
+      {/* ABOUT */}
+      <section className="mx-auto max-w-6xl px-4 py-10 grid md:grid-cols-2 gap-8 items-center">
+        <motion.div variants={fade} initial="hidden" whileInView="show" viewport={{once:true}}>
+          <img src="/assets/court-drop.png" alt="Court drop" className="rounded-2xl shadow-2xl border border-white/10" />
+        </motion.div>
+        <motion.div variants={fade} initial="hidden" whileInView="show" viewport={{once:true}} className="space-y-4">
+          <h2 className
