@@ -32,7 +32,7 @@ export default function App() {
             variants={fadeUp}
           />
           <motion.h1 className="mt-6 text-4xl sm:text-6xl font-extrabold tracking-tight" variants={fadeUp}>
-            The Green D is <span className="text-emerald-400">for holders</span>
+            The Green Dildo is <span className="text-emerald-400">for holders</span>
           </motion.h1>
           <motion.p className="mt-4 text-lg text-white/80" variants={fadeUp}>
             Pixel vibes. BONK the dip. Arcade-grade memes on XRPL.
@@ -199,7 +199,7 @@ export default function App() {
       {/* FOOTER */}
       <footer className="border-t border-white/10">
         <div className="max-w-6xl mx-auto px-6 py-10 text-center text-white/60 text-sm">
-          © {new Date().getFullYear()} Green D Coin. The Green D is for holders.
+          © {new Date().getFullYear()} Green Dildo Coin. The Green Dildo is for holders.
         </div>
       </footer>
     </div>
